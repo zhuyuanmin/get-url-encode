@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Index Page</title>
+</head>
+<body>
+  <h3>这是首页</h3>
+  <button id="btn">跳转到详情页</button>
+
+  <script>
+    const btn = document.getElementById('btn')
+    btn.addEventListener('click', (ev) => {
+      location.href = './detail.html?query=vo6k65z'
+      return
+      fetch('/api?url=http://localhost:3000?a=1&b=2&c=3')
+        .then(res => res.text())
+        .then(res => {
+          console.log(res)
+          // vo6k65z
+          location.href = `./detail.html?query=${res.substring(20)}`
+        })
+    }, false)
+  </script>
+</body>
+</html>
