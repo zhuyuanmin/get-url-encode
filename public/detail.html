@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Detail Page</title>
+</head>
+<body>
+  <h3>这是详情页, 传递的参数是<span id="mySpan"></span></h3>
+  <script>
+    const query = location.href.split('?query=')[1]
+    fetch(`/api2/${query}`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        document.getElementById('mySpan').innerHTML = JSON.stringify(res)
+      })
+  </script>
+</body>
+</html>
